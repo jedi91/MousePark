@@ -444,7 +444,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="top"
                         ads:adSize="BANNER"
-                        ads:adUnitId="ca-app-pub-3244652524998024/5383952534" />
+                        ads:adUnitId="@string/add_id" />
                 </LinearLayout>
             </TableRow>
 
