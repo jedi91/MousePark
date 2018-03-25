@@ -11,10 +11,13 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.mkovacevich.michael.mousepark.MouseParkApp.DynamoBehavior;
 import com.mkovacevich.michael.mousepark.MouseParkApp.Lot;
 import com.mkovacevich.michael.mousepark.MouseParkApp.LotName;
 import com.mkovacevich.michael.mousepark.MouseParkApp.LotStatus;
 import com.mkovacevich.michael.mousepark.MouseParkApp.MouseParkApp;
+import com.mkovacevich.michael.mousepark.MouseParkApp.ParkingLot;
+import com.mkovacevich.michael.mousepark.MouseParkApp.SimpleBehavior;
 import com.mkovacevich.michael.mousepark.R;
 
 public class ParkingLots extends AppCompatActivity {

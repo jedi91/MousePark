@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 
-import java.util.concurrent.ExecutionException;
-
 /**
  * Created by Michael on 3/4/2018.
  */
@@ -14,32 +12,20 @@ import java.util.concurrent.ExecutionException;
 public class Lot
 {
     private int statusId;
-    private boolean isSimpleLot;
     private Context context;
     private LotName name;
-    private DynamoMapper mapper;
-    private DynamoBehavior behavior;
+    private DatabaseBehavior database;
 
     public Lot(Context context, LotName name)
     {
         this.context = context;
         this.name = name;
-        this.mapper = new DynamoMapper(context);
         this.statusId = 0;
-
-        int id = AppSettings.getLotId(context, name);
-        if (id == -1) {
-            isSimpleLot = true;
-            behavior = new SimpleLotBehavior();
-        }
-        else {
-            isSimpleLot = false;
-            behavior = new DatabaseLotBehavior(context, id);
-        }
+        this.database = DatabaseBehaviorFactory.createDatabaseBehavior(context, name);;
     }
 
     public boolean isSimpleLot(){
-        return  isSimpleLot;
+        return  database instanceof SimpleBehavior;
     }
 
     public void openDirections(AppCompatActivity activity)
@@ -51,12 +37,12 @@ public class Lot
     }
 
     public LotStatus getStatus()  {
-        statusId = behavior.getValue();
+        statusId = database.getValue();
         return  AppSettings.getLotStatus(context, statusId);
     }
 
     public void updateStatus(LotStatus status){
         statusId = AppSettings.getLotStatusId(context, status);
-        behavior.updateValue(statusId);
+        database.updateValue(statusId);
     }
 }

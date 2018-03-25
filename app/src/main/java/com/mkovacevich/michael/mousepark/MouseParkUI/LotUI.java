@@ -9,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.mkovacevich.michael.mousepark.MouseParkApp.DatabaseBehavior;
+import com.mkovacevich.michael.mousepark.MouseParkApp.DatabaseBehaviorFactory;
 import com.mkovacevich.michael.mousepark.MouseParkApp.Lot;
 import com.mkovacevich.michael.mousepark.MouseParkApp.LotName;
 import com.mkovacevich.michael.mousepark.MouseParkApp.LotStatus;
